@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Application</title>
+    <link href="app.css" rel="stylesheet"/>
+</head>
+<body>
+
+<script type="module">
+
+    import {AppRootController}     from "./appRoot/appRootController.js";
+    import {projectGame}           from "./appRoot/appRootProjector.js";
+    import {defaultConsoleLogging} from "../kolibri/logger/loggingSupport.js";
+    import {OM}                  from "./observableMap/om.js";
+    import {LOG_DEBUG, LOG_WARN} from "../kolibri/logger/logLevel.js";
+
+    defaultConsoleLogging("ch.fhnw.app", LOG_DEBUG);
+
+
+    const om = OM("app.html", 1); // 1 is the minimum here to make updates async
+
+    const gameController = AppRootController(om);
+
+    gameController.startApp(_ => {
+        document.body.append(...projectGame(gameController));
+    });
+
+</script>
+</body>
+</html>

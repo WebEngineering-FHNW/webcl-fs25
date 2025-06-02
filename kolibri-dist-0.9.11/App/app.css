@@ -1,0 +1,67 @@
+
+:root {
+
+}
+
+html {
+    overscroll-behavior:    none;
+    font-family:            system-ui;
+}
+
+header {
+    position:               fixed;
+    z-index:                10;
+    inset:                  1em 1em auto auto;
+    background-color:       #FFF2;
+    padding:                .5em 1em;
+    border-radius:          .5em;
+    color:                  aliceblue;
+    color-scheme:           dark;
+
+    display:                grid;
+    grid-template-columns:  1fr;
+    gap:                    .3em;
+    justify-items:          right;
+
+    &.active {
+        border:             2px solid white;
+    }
+
+    & div.personList {
+        padding:            .3em .5em;
+        background-color:   #FFFFFF18;
+        border-radius:      .3em;
+
+        & ul {
+            overflow-y:      scroll;
+            max-height:      5lh;
+            max-width:       10ch;
+            list-style:      none;
+            padding:         0;
+            margin:          0;
+            & li {
+                text-wrap:   nowrap;
+            }
+        }
+    }
+}
+li.active {
+    text-decoration: underline;
+}
+
+body {
+    min-height:             100dvh;
+    display:                grid;
+    grid-template-columns:  100%;
+    grid-template-rows:     1fr max-content;
+    margin:                 0;
+    background:             linear-gradient(in srgb-linear, blue, orange);
+}
+
+footer {
+    padding:     1lh;
+    display:     grid;
+    place-items: center;
+    color:       white;
+    font-size:   120%;
+}
