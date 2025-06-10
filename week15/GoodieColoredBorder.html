@@ -7,7 +7,36 @@
         body {
         }
         .foo {
-
+            width: 50%;
+            aspect-ratio: 1 / 1;
+            --foo: 3em;
+            border: var(--foo) solid transparent;
+            --angle: 0deg;
+            border-radius: calc(var(--foo) * 2);
+            background:
+                linear-gradient(Canvas, Canvas) padding-box,
+                conic-gradient(
+                    from var(--angle),
+                    yellow,
+                    orange,
+                    red,
+                    blueviolet,
+                    blue,
+                    green,
+                    yellow
+                ) border-box;
+            ;
+            animation: rundummeli 5s infinite linear;
+        }
+        @property --angle {
+          syntax: "<angle>";
+          inherits: true;
+          initial-value: 0deg;
+        }
+        @keyframes rundummeli {
+            100% {
+                --angle: 360deg;
+            }
         }
 
 
